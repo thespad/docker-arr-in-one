@@ -101,10 +101,10 @@ RUN \
   echo "**** cleanup ****" && \
   rm -rf \
     /app/sonarr/bin/Sonarr.Update \
-    /app/whisparr/bin/Radarr.Update \
-    /app/whisparr/bin/Lidarr.Update \
-    /app/whisparr/bin/Readarr.Update \
-    /app/whisparr/bin/Prowlarr.Update \
+    /app/radarr/bin/Radarr.Update \
+    /app/lidarr/bin/Lidarr.Update \
+    /app/readarr/bin/Readarr.Update \
+    /app/prowlarr/bin/Prowlarr.Update \
     /app/whisparr/bin/Whisparr.Update \
     /tmp/*
 
