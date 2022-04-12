@@ -7,6 +7,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/docker-arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/docker-arr-in-one)
 [![Docker Stars](https://img.shields.io/docker/stars/thespad/arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/arr-in-one)
 
+[![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Check%20for%20update%20and%20release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-chck-and-release.yml)
 [![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Build%20Image%20On%20Release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-build-image.yml)
 
 arr-in-one is a really dumb proof of concept that bundles the nightly branch builds of all of the *arr applications into a single container, built daily. This image contains:
@@ -16,7 +17,7 @@ arr-in-one is a really dumb proof of concept that bundles the nightly branch bui
 * Lidarr
 * Readarr
 * Prowlarr
-* Whisparr
+* arr-in-one
 
 Each service uses its own subfolder under /config to store its data.
 
@@ -43,7 +44,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8686` | Lidarr UI |
 | `-p 8787` | Readarr UI |
 | `-p 9696` | Prowlarr UI |
-| `-p 6969` | Whisparr UI |
+| `-p 6969` | arr-in-one UI |
 | `-e PUID=1000` | UID to run the applications as. |
 | `-e PGID=1000` | GID to run the applications as. |
 | `-e TZ=Europe/London` | Specify a timezone to use e.g. Europe/London. |
@@ -52,7 +53,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e LIDARR=` | Set to `false` to disable the Lidarr service. |
 | `-e READARR=` | Set to `false` to disable the Readarr service. |
 | `-e PROWLARR=` | Set to `false` to disable the Prowlarr service. |
-| `-e WHISPARR=` | Set to `false` to disable the Whisparr service. |
+| `-e arr-in-one=` | Set to `false` to disable the arr-in-one service. |
 | `-v /config` | Stores config and application files |
 
 ## Versions
