@@ -1,9 +1,12 @@
-name: Build Image On Schedule
+name: Build Image On Release
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron:  '0 0 * * 0'
+  release:
+    types: [ published ]
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   call-workflow:
