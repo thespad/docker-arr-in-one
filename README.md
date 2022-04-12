@@ -18,6 +18,8 @@ arr-in-one is a really dumb proof of concept that bundles the nightly branch bui
 * Prowlarr
 * Whisparr
 
+Each service uses its own subfolder under /config to store its data.
+
 ## Supported Architectures
 
 Our images support multiple architectures and simply pulling `ghcr.io/thespad/arr-in-one:latest` should retrieve the correct image for your arch.
