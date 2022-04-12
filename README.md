@@ -14,8 +14,8 @@ arr-in-one is a really dumb proof of concept that bundles the nightly branch bui
 * Sonarr
 * Radarr
 * Lidarr
-* Prowlarr
 * Readarr
+* Prowlarr
 * Whisparr
 
 ## Supported Architectures
@@ -29,6 +29,29 @@ The architectures supported by this image are:
 | x86-64 | ✅ | latest |
 | arm64 | ✅ | latest |
 | armhf | ✅ | latest |
+
+## Parameters
+
+Container images are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
+
+| Parameter | Function |
+| :----: | --- |
+| `-p 8989` | Sonarr UI |
+| `-p 7878` | Radarr UI |
+| `-p 8686` | Lidarr UI |
+| `-p 8787` | Readarr UI |
+| `-p 9696` | Prowlarr UI |
+| `-p 6969` | Whisparr UI |
+| `-e PUID=1000` | for UserID - see below for explanation |
+| `-e PGID=1000` | for GroupID - see below for explanation |
+| `-e TZ=Europe/London` | Specify a timezone to use e.g. Europe/London. |
+| `-e SONARR=` | Set to `false` to disable the Sonarr service. |
+| `-e RADARR=` | Set to `false` to disable the Radarr service. |
+| `-e LIDARR=` | Set to `false` to disable the Lidarr service. |
+| `-e READARR=` | Set to `false` to disable the Readarr service. |
+| `-e PROWLARR=` | Set to `false` to disable the Prowlarr service. |
+| `-e WHISPARR=` | Set to `false` to disable the Whisparr service. |
+| `-v /config` | Stores config and application files |
 
 ## Versions
 
