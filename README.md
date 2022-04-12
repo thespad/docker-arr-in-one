@@ -44,8 +44,8 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8787` | Readarr UI |
 | `-p 9696` | Prowlarr UI |
 | `-p 6969` | Whisparr UI |
-| `-e PUID=1000` | for UserID - see below for explanation |
-| `-e PGID=1000` | for GroupID - see below for explanation |
+| `-e PUID=1000` | UID to run the applications as. |
+| `-e PGID=1000` | GID to run the applications as. |
 | `-e TZ=Europe/London` | Specify a timezone to use e.g. Europe/London. |
 | `-e SONARR=` | Set to `false` to disable the Sonarr service. |
 | `-e RADARR=` | Set to `false` to disable the Radarr service. |
