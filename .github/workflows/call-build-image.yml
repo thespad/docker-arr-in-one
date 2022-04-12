@@ -1,0 +1,19 @@
+name: Build Image On Schedule
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * 0'
+
+jobs:
+  call-workflow:
+    uses: thespad/actions/.github/workflows/build-split-image.yml@v6
+    with:
+      repo_owner: thespad
+      app_name: "arr-in-one"
+      release_type: "script"
+      dockerhub_user: "thespad"
+      target-arch: >-
+        ["amd64", "aarch64", "armhf"]
+    secrets:
+      dockerhub_password: ${{ secrets.DOCKER_PASSWORD }}
