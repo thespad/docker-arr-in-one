@@ -32,7 +32,7 @@ RUN \
   tar xzf \
   /tmp/sonarr.tar.gz -C \
     /app/sonarr/bin --strip-components=1 && \
-  echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${SONARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/sonarr/package_info && \
+  echo -e "UpdateMethod=docker\nBranch=${SONARR_BRANCH}\nPackageVersion=${SONARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/sonarr/package_info && \
   echo "**** install radarr ****" && \
   mkdir -p /app/radarr/bin && \
   if [ -z ${RADARR_VERSION+x} ]; then \
