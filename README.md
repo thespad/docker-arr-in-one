@@ -17,7 +17,7 @@ arr-in-one is a really dumb proof of concept that bundles the nightly branch bui
 * Lidarr
 * Readarr
 * Prowlarr
-* arr-in-one
+* Whisparr
 
 Each service uses its own subfolder under /config to store its data.
 
@@ -44,7 +44,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8686` | Lidarr UI |
 | `-p 8787` | Readarr UI |
 | `-p 9696` | Prowlarr UI |
-| `-p 6969` | arr-in-one UI |
+| `-p 6969` | Whisparr UI |
 | `-e PUID=1000` | UID to run the applications as. |
 | `-e PGID=1000` | GID to run the applications as. |
 | `-e TZ=Europe/London` | Specify a timezone to use e.g. Europe/London. |
@@ -53,7 +53,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e LIDARR=` | Set to `false` to disable the Lidarr service. |
 | `-e READARR=` | Set to `false` to disable the Readarr service. |
 | `-e PROWLARR=` | Set to `false` to disable the Prowlarr service. |
-| `-e arr-in-one=` | Set to `false` to disable the arr-in-one service. |
+| `-e WHISPARR=` | Set to `false` to disable the Whisparr service. |
 | `-v /config` | Stores config and application files |
 
 ## Versions
