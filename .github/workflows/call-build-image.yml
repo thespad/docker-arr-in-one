@@ -4,9 +4,6 @@ on:
   release:
     types: [ published ]
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
   call-workflow:
