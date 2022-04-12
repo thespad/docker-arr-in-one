@@ -28,7 +28,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | latest |
 | arm64 | ✅ | latest |
-| armhf | ✅ | latest |
+| armhf | ❌ | |
 
 ## Parameters
 
