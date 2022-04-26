@@ -1,7 +1,7 @@
 # [thespad/arr-in-one](https://github.com/thespad/docker-arr-in-one)
 
 [![GitHub Release](https://img.shields.io/github/release/thespad/docker-arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&include_prereleases)](https://github.com/thespad/docker-arr-in-one/releases)
-![Commits](https://img.shields.io/github/commits-since/thespad/docker-arr-in-one/latest?color=26689A&include_prereleases&logo=github&style=for-the-badge)
+[![Commits](https://img.shields.io/github/commits-since/thespad/docker-arr-in-one/latest?color=26689A&include_prereleases&logo=github&style=for-the-badge)](https://github.com/TheSpad/docker-arr-in-one/commits/main)
 ![Image Size](https://img.shields.io/docker/image-size/thespad/arr-in-one/latest?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Size)
 [![Docker Pulls](https://img.shields.io/docker/pulls/thespad/arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/thespad/arr-in-one)
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/docker-arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/docker-arr-in-one)
