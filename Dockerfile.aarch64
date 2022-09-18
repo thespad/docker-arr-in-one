@@ -9,7 +9,7 @@ LABEL maintainer="thespad"
 
 # environment settings
 ARG APP_BRANCH="nightly"
-ARG SONARR_BRANCH="widowmaker"
+ARG SONARR_BRANCH="develop"
 ENV XDG_CONFIG_HOME="/config/xdg"
 
 RUN \
@@ -23,12 +23,12 @@ RUN \
   echo "**** install sonarr ****" && \
   mkdir -p /app/sonarr/bin && \
   if [ -z ${SONARR_VERSION+x} ]; then \
-    SONARR_VERSION=$(curl -sL "https://sonarr.servarr.com/v1/update/${SONARR_BRANCH}/changes?runtime=netcore&os=linuxmusl" \
+    SONARR_VERSION=$(curl -sL "https://services.sonarr.tv/v1/update/${SONARR_BRANCH}/changes?version=4&os=linuxmusl" \
     | jq -r '.[0].version'); \
   fi && \
   curl -o \
     /tmp/sonarr.tar.gz -L \
-    "https://sonarr.servarr.com/v1/update/${SONARR_BRANCH}/updatefile?version=${SONARR_VERSION}&os=linuxmusl&runtime=netcore&arch=arm64" && \
+    "https://download.sonarr.tv/v4/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-arm64.tar.gz" && \
   tar xzf \
   /tmp/sonarr.tar.gz -C \
     /app/sonarr/bin --strip-components=1 && \

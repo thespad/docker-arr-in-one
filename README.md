@@ -10,7 +10,7 @@
 [![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Check%20for%20update%20and%20release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-check-and-release.yml)
 [![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Build%20Image%20On%20Release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-build-image.yml)
 
-arr-in-one is a really dumb proof of concept that bundles the nightly branch builds of all of the *arr applications into a single container, built daily. This image contains:
+arr-in-one is a really dumb proof of concept that bundles the nightly branch builds (develop for Sonarr as it lacks a nightly branch) of all of the *arr applications into a single container, built daily. This image contains:
 
 * Sonarr
 * Radarr
@@ -58,4 +58,5 @@ Container images are configured using parameters passed at runtime (such as thos
 
 ## Versions
 
+* **18.09.22:** - Update Sonarr to track develop branch.
 * **12.04.22:** - Initial Release.
