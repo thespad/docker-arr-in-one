@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-exec \
-    s6-setuidgid abc /app/prowlarr/bin/Prowlarr \
-    -nobrowser -data=/config/prowlarr
