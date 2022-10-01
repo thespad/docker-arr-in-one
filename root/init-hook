@@ -1,0 +1,34 @@
+#!/usr/bin/with-contenv bash
+
+# Toggle services off
+if [[ "${SONARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-sonarr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-sonarr
+fi
+
+if [[ "${RADARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-radarr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-radarr
+fi
+
+if [[ "${LIDARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-lidarr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-lidarr
+fi
+
+if [[ "${READARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-readarr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-readarr
+fi
+
+if [[ "${PROWLARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-prowlarr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-prowlarr
+fi
+
+if [[ "${WHISPARR}" == "false" ]]; then
+    rm -rf /etc/s6-overlay/s6-rc.d/svc-whisparr
+    rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-whisparr
+fi
+
+exec /docker-mods

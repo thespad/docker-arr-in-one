@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.15
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16
 
 # set version label
 ARG BUILD_DATE
@@ -6,11 +6,14 @@ ARG VERSION
 ARG APP_VERSION
 LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
+LABEL org.opencontainers.image.source="https://github.com/thespad/docker-arr-in-one"
+LABEL org.opencontainers.image.url="https://github.com/thespad/docker-arr-in-one"
 
 # environment settings
 ARG APP_BRANCH="nightly"
 ARG SONARR_BRANCH="develop"
 ENV XDG_CONFIG_HOME="/config/xdg"
+ENV S6_STAGE2_HOOK="/init-hook"
 
 RUN \
   echo "**** install packages ****" && \
