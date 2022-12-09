@@ -1,4 +1,6 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.16
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-alpine:3.17
 
 # set version label
 ARG BUILD_DATE
@@ -18,16 +20,14 @@ ENV S6_STAGE2_HOOK="/init-hook"
 RUN \
   echo "**** install packages ****" && \
   apk add -U --upgrade --no-cache \
-    curl \
-    jq \
+    chromaprint \
     icu-libs \
-    libmediainfo \
     sqlite-libs && \
   echo "**** install sonarr ****" && \
   mkdir -p /app/sonarr/bin && \
   if [ -z ${SONARR_VERSION+x} ]; then \
-    SONARR_VERSION=$(curl -sL "https://services.sonarr.tv/v1/update/${SONARR_BRANCH}/changes?version=4&os=linuxmusl" \
-    | jq -r '.[0].version'); \
+    SONARR_VERSION=$(curl -sX GET http://services.sonarr.tv/v1/releases \
+    | jq -r "first(.[] | select(.branch==\"$SONARR_BRANCH\") | .version)"); \
   fi && \
   curl -o \
     /tmp/sonarr.tar.gz -L \

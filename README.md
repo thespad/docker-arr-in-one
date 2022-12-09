@@ -58,6 +58,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 ## Versions
 
+* **09.12.22:** - Rebase to Alpine 3.17.
 * **24.09.22:** - Rebase to Alpine 3.16, migrate to s6v3.
 * **18.09.22:** - Update Sonarr to track develop branch.
 * **12.04.22:** - Initial Release.
