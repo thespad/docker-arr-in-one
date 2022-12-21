@@ -7,8 +7,8 @@
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/docker-arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/docker-arr-in-one)
 [![Docker Stars](https://img.shields.io/docker/stars/thespad/arr-in-one.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/arr-in-one)
 
-[![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Check%20for%20update%20and%20release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-check-and-release.yml)
-[![ci](https://img.shields.io/github/workflow/status/thespad/docker-arr-in-one/Build%20Image%20On%20Release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-build-image.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/thespad/docker-arr-in-one/call-check-and-release.yml?branch=main&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-check-and-release.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/thespad/docker-arr-in-one/call-build-image.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-build-image.yml)
 
 arr-in-one is a really dumb proof of concept that bundles the nightly branch builds (develop for Sonarr as it lacks a nightly branch) of all of the *arr applications into a single container, built daily. This image contains:
 
