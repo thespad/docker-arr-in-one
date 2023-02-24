@@ -1,33 +1,27 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 # Toggle services off
-if [[ "${SONARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-sonarr
+if [[ "${SONARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-sonarr
 fi
 
-if [[ "${RADARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-radarr
+if [[ "${RADARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-radarr
 fi
 
-if [[ "${LIDARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-lidarr
+if [[ "${LIDARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-lidarr
 fi
 
-if [[ "${READARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-readarr
+if [[ "${READARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-readarr
 fi
 
-if [[ "${PROWLARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-prowlarr
+if [[ "${PROWLARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-prowlarr
 fi
 
-if [[ "${WHISPARR}" == "false" ]]; then
-    rm -rf /etc/s6-overlay/s6-rc.d/svc-whisparr
+if [[ "${WHISPARR,,}" == "false" ]]; then
     rm -rf /etc/s6-overlay/s6-rc.d/user/contents.d/svc-whisparr
 fi
 
