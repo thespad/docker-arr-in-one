@@ -10,6 +10,7 @@ LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
 LABEL org.opencontainers.image.source="https://github.com/thespad/docker-arr-in-one"
 LABEL org.opencontainers.image.url="https://github.com/thespad/docker-arr-in-one"
+LABEL org.opencontainers.image.description="A really dumb proof of concept that bundles the nightly branch builds of all of the *arr applications into a single container"
 
 # environment settings
 ARG APP_BRANCH="nightly"
