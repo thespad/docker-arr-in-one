@@ -31,7 +31,6 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | latest |
 | arm64 | ✅ | latest |
-| armhf | ❌ | |
 
 ## Parameters
 
@@ -58,6 +57,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 ## Versions
 
+* **30.12.23:** - Rebase to Alpine 3.19.
 * **14.05.23:** - Rebase to Alpine 3.18.
 * **09.12.22:** - Rebase to Alpine 3.17.
 * **24.09.22:** - Rebase to Alpine 3.16, migrate to s6v3.
