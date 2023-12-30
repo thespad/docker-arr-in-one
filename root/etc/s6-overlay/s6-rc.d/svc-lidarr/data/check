@@ -1,6 +1,10 @@
 #!/bin/bash
 
-if [[ $(curl -sL "http://localhost:8686/ping" | jq -r '.status' 2>/dev/null) = "OK" ]]; then
+if [[ -f /config/lidarr/config.xml ]]; then
+    PORT=$(xmlstarlet sel -T -t -v /Config/Port /config/lidarr/config.xml)
+fi
+
+if [[ $(curl -sL "http://localhost:${PORT:-8686}/ping" | jq -r '.status' 2>/dev/null) = "OK" ]]; then
     exit 0
 else
     exit 1
