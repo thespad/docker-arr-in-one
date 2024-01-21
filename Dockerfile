@@ -15,6 +15,7 @@ LABEL org.opencontainers.image.description="A really dumb proof of concept that 
 # environment settings
 ARG APP_BRANCH="nightly"
 ARG SONARR_BRANCH="develop"
+ENV SONARR_CHANNEL="v4-nightly"
 ENV XDG_CONFIG_HOME="/config/xdg"
 ENV S6_STAGE2_HOOK="/init-hook"
 
@@ -28,11 +29,11 @@ RUN \
   mkdir -p /app/sonarr/bin && \
   if [ -z ${SONARR_VERSION+x} ]; then \
     SONARR_VERSION=$(curl -sX GET http://services.sonarr.tv/v1/releases \
-    | jq -r "first(.[] | select(.branch==\"$SONARR_BRANCH\") | .version)"); \
+    | jq -r "first(.[] | select(.releaseChannel==\"${SONARR_CHANNEL}\") | .version)"); \
   fi && \
   curl -o \
     /tmp/sonarr.tar.gz -L \
-    "https://download.sonarr.tv/v4/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-x64.tar.gz" && \
+    "https://services.sonarr.tv/v1/update/${SONARR_BRANCH}/download?version=${SONARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
   tar xzf \
   /tmp/sonarr.tar.gz -C \
     /app/sonarr/bin --strip-components=1 && \
