@@ -33,7 +33,7 @@ RUN \
   fi && \
   curl -o \
     /tmp/sonarr.tar.gz -L \
-    "https://services.sonarr.tv/v1/update/${SONARR_BRANCH}/download?version=${SONARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
+    "https://services.sonarr.tv/v1/update/${SONARR_BRANCH}/download?version=${SONARR_VERSION}&os=linuxmusl&runtime=netcore&arch=arm64" && \
   tar xzf \
   /tmp/sonarr.tar.gz -C \
     /app/sonarr/bin --strip-components=1 && \
