@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.19
+FROM ghcr.io/linuxserver/baseimage-alpine:3.20
 
 # set version label
 ARG BUILD_DATE
@@ -11,6 +11,7 @@ LABEL maintainer="thespad"
 LABEL org.opencontainers.image.source="https://github.com/thespad/docker-arr-in-one"
 LABEL org.opencontainers.image.url="https://github.com/thespad/docker-arr-in-one"
 LABEL org.opencontainers.image.description="A really dumb proof of concept that bundles the nightly branch builds of all of the *arr applications into a single container"
+LABEL org.opencontainers.image.authors="thespad"
 
 # environment settings
 ARG APP_BRANCH="nightly"
@@ -103,6 +104,7 @@ RUN \
   /tmp/whisparr.tar.gz -C \
     /app/whisparr/bin --strip-components=1 && \
   echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${WHISPARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/whisparr/package_info && \
+  printf "Version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \
     /app/sonarr/bin/Sonarr.Update \
