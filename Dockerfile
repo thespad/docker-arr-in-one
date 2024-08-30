@@ -86,7 +86,8 @@ RUN \
   fi && \
   curl -o \
     /tmp/prowlarr.tar.gz -L \
-    "https://prowlarr.servarr.com/v1/update/${APP_BRANCH}/updatefile?version=${PROWLARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
+    # "https://prowlarr.servarr.com/v1/update/${APP_BRANCH}/updatefile?version=${PROWLARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
+    "https://github.com/Prowlarr/Prowlarr/releases/download/v1.23.0.4690/Prowlarr.develop.1.23.0.4690.linux-musl-core-x64.tar.gz" && \
   tar xzf \
   /tmp/prowlarr.tar.gz -C \
     /app/prowlarr/bin --strip-components=1 && \
