@@ -57,6 +57,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 ## Versions
 
+* **02.02.25:** - Rebase to Alpine 3.21.
 * **02.09.24:** - Unpin Prowlarr version.
 * **30.08.24:** - Pin Prowlarr version until update endpoint is fixed.
 * **26.05.24:** - Rebase to Alpine 3.20.
