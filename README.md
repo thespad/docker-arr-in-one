@@ -38,12 +38,12 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | ---- | --- |
-| `-p 8989` | Sonarr UI |
-| `-p 7878` | Radarr UI |
-| `-p 8686` | Lidarr UI |
-| `-p 8787` | Readarr UI |
-| `-p 9696` | Prowlarr UI |
-| `-p 6969` | Whisparr UI |
+| `-p 8989:8989` | Sonarr UI |
+| `-p 7878:7878` | Radarr UI |
+| `-p 8686:8686` | Lidarr UI |
+| `-p 8787:8787` | Readarr UI |
+| `-p 9696:9696` | Prowlarr UI |
+| `-p 6969:6969` | Whisparr UI |
 | `-e PUID=1000` | UID to run the applications as. |
 | `-e PGID=1000` | GID to run the applications as. |
 | `-e TZ=Europe/London` | Specify a timezone to use e.g. Europe/London. |
