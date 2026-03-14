@@ -15,7 +15,6 @@ arr-in-one is a really dumb proof of concept that bundles the nightly branch bui
 * Sonarr
 * Radarr
 * Lidarr
-* Readarr
 * Prowlarr
 * Whisparr
 
@@ -51,7 +50,6 @@ services:
       - SONARR= #optional
       - RADARR= #optional
       - LIDARR= #optional
-      - READARR= #optional
       - PROWLARR= #optional
       - WHISPARR= #optional
     volumes:
@@ -60,7 +58,6 @@ services:
       - 8989:8989
       - 7878:7878
       - 8686:8686
-      - 8787:8787
       - 9696:9696
       - 6969:6969
     restart: unless-stopped
@@ -77,13 +74,11 @@ docker run -d \
   -e SONARR= `#optional` \
   -e RADARR= `#optional` \
   -e LIDARR= `#optional` \
-  -e READARR= `#optional` \
   -e PROWLARR= `#optional` \
   -e WHISPARR= `#optional` \
   -p 8989:8989 \
   -p 7878:7878 \
   -p 8686:8686 \
-  -p 8787:8787 \
   -p 9696:9696 \
   -p 6969:6969 \
   -v /config:/config \
@@ -100,7 +95,6 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8989:8989` | Sonarr UI |
 | `-p 7878:7878` | Radarr UI |
 | `-p 8686:8686` | Lidarr UI |
-| `-p 8787:8787` | Readarr UI |
 | `-p 9696:9696` | Prowlarr UI |
 | `-p 6969:6969` | Whisparr UI |
 | `-e PUID=1000` | UID to run the applications as. |
@@ -109,7 +103,6 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e SONARR=` | Set to `false` to disable the Sonarr service. |
 | `-e RADARR=` | Set to `false` to disable the Radarr service. |
 | `-e LIDARR=` | Set to `false` to disable the Lidarr service. |
-| `-e READARR=` | Set to `false` to disable the Readarr service. |
 | `-e PROWLARR=` | Set to `false` to disable the Prowlarr service. |
 | `-e WHISPARR=` | Set to `false` to disable the Whisparr service. |
 | `-v /config:/config` | Stores config and application files |
@@ -197,7 +190,8 @@ docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 
 ## Versions
 
-* **27.03.26:** - Rebase to Alpine 3.23.
+* **14.03.26:** - Remove Readarr, it's time.
+* **27.02.26:** - Rebase to Alpine 3.23.
 * **25.07.25:** - Rebase to Alpine 3.22.
 * **02.02.25:** - Rebase to Alpine 3.21.
 * **02.09.24:** - Unpin Prowlarr version.
