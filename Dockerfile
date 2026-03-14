@@ -65,19 +65,6 @@ RUN \
   /tmp/lidarr.tar.gz -C \
     /app/lidarr/bin --strip-components=1 && \
   echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${LIDARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/lidarr/package_info && \
-  echo "**** install readarr ****" && \
-  mkdir -p /app/readarr/bin && \
-  if [ -z ${READARR_VERSION+x} ]; then \
-    READARR_VERSION=$(curl -sL "https://readarr.servarr.com/v1/update/${APP_BRANCH}/changes?runtime=netcore&os=linuxmusl" \
-    | jq -r '.[0].version'); \
-  fi && \
-  curl -o \
-    /tmp/readarr.tar.gz -L \
-    "https://readarr.servarr.com/v1/update/${APP_BRANCH}/updatefile?version=${READARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
-  tar xzf \
-  /tmp/readarr.tar.gz -C \
-    /app/readarr/bin --strip-components=1 && \
-  echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${READARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/readarr/package_info && \
   echo "**** install prowlarr ****" && \
   mkdir -p /app/prowlarr/bin && \
   if [ -z ${PROWLARR_VERSION+x} ]; then \
@@ -110,7 +97,6 @@ RUN \
     /app/sonarr/bin/Sonarr.Update \
     /app/radarr/bin/Radarr.Update \
     /app/lidarr/bin/Lidarr.Update \
-    /app/readarr/bin/Readarr.Update \
     /app/prowlarr/bin/Prowlarr.Update \
     /app/whisparr/bin/Whisparr.Update \
     /tmp/*
@@ -119,6 +105,6 @@ RUN \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 6969 7878 8686 8787 8989 9696
+EXPOSE 6969 7878 8686 8989 9696
 
 VOLUME /config
