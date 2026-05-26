@@ -81,12 +81,12 @@ RUN \
   echo "**** install whisparr ****" && \
   mkdir -p /app/whisparr/bin && \
   if [ -z ${WHISPARR_VERSION+x} ]; then \
-    WHISPARR_VERSION=$(curl -sL "https://whisparr.servarr.com/v1/update/${APP_BRANCH}/changes?runtime=netcore&os=linuxmusl" \
-    | jq -r '.[0].version'); \
+    WHISPARR_VERSION=$(curl -sL "https://api.github.com/repos/Whisparr/Whisparr-Eros/releases" \
+    | jq -r 'first(.[].tag_name)'); \
   fi && \
   curl -o \
     /tmp/whisparr.tar.gz -L \
-    "https://whisparr.servarr.com/v1/update/${APP_BRANCH}/updatefile?version=${WHISPARR_VERSION}&os=linuxmusl&runtime=netcore&arch=x64" && \
+    "https://github.com/Whisparr/Whisparr-Eros/releases/download/${APP_VERSION}/Whisparr.eros.${APP_VERSION#v}.linux-musl-x64.tar.gz" && \
   tar xzf \
   /tmp/whisparr.tar.gz -C \
     /app/whisparr/bin --strip-components=1 && \
