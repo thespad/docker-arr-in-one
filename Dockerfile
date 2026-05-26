@@ -86,7 +86,7 @@ RUN \
   fi && \
   curl -o \
     /tmp/whisparr.tar.gz -L \
-    "https://github.com/Whisparr/Whisparr-Eros/releases/download/${APP_VERSION}/Whisparr.eros.${APP_VERSION#v}.linux-musl-x64.tar.gz" && \
+    "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz" && \
   tar xzf \
   /tmp/whisparr.tar.gz -C \
     /app/whisparr/bin --strip-components=1 && \
