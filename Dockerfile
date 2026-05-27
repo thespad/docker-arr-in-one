@@ -80,13 +80,20 @@ RUN \
   echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${PROWLARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/prowlarr/package_info && \
   echo "**** install whisparr ****" && \
   mkdir -p /app/whisparr/bin && \
+  WHISPARR_RELEASE=$(curl -sL "https://api.github.com/repos/Whisparr/Whisparr-Eros/releases") && \
   if [ -z ${WHISPARR_VERSION+x} ]; then \
-    WHISPARR_VERSION=$(curl -sL "https://api.github.com/repos/Whisparr/Whisparr-Eros/releases" \
-    | jq -r 'first(.[].tag_name)'); \
+    WHISPARR_VERSION=$(echo "${WHISPARR_RELEASE}" | jq -r 'first(.[].tag_name)'); \
   fi && \
-  curl -o \
-    /tmp/whisparr.tar.gz -L \
-    "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz" && \
+  WHISPARR_RELEASE_TYPE=$(echo "${WHISPARR_RELEASE}" | jq -r ".[] | select(.tag_name == \"${WHISPARR_VERSION}\") | .prerelease") && \
+  if ${WHISPARR_RELEASE_TYPE}; then \
+    curl -o \
+      /tmp/whisparr.tar.gz -L \
+      "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros-develop.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz"; \
+  else \
+    curl -o \
+      /tmp/whisparr.tar.gz -L \
+      "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz"; \
+  fi && \
   tar xzf \
   /tmp/whisparr.tar.gz -C \
     /app/whisparr/bin --strip-components=1 && \
