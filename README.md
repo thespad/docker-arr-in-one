@@ -190,6 +190,7 @@ docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 
 ## Versions
 
+* **14.07.26:** - Rebase to Alpine 3.24.
 * **14.03.26:** - Remove Readarr, it's time.
 * **27.02.26:** - Rebase to Alpine 3.23.
 * **25.07.25:** - Rebase to Alpine 3.22.
