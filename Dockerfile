@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-
 FROM ghcr.io/linuxserver/baseimage-alpine:3.24
 
 # set version label
@@ -10,13 +9,13 @@ LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
 LABEL org.opencontainers.image.source="https://github.com/thespad/docker-arr-in-one"
 LABEL org.opencontainers.image.url="https://github.com/thespad/docker-arr-in-one"
-LABEL org.opencontainers.image.description="A really dumb proof of concept that bundles the nightly branch builds of all of the *arr applications into a single container"
+LABEL org.opencontainers.image.description="A proof of concept that bundles the stable branch builds of all of the *arr applications into a single container"
 LABEL org.opencontainers.image.authors="thespad"
 
 # environment settings
-ARG APP_BRANCH="nightly"
-ARG SONARR_BRANCH="develop"
-ENV SONARR_CHANNEL="v4-nightly"
+ARG APP_BRANCH="master"
+ARG SONARR_BRANCH="main"
+ENV SONARR_CHANNEL="v4-stable"
 ENV XDG_CONFIG_HOME="/config/xdg"
 ENV S6_STAGE2_HOOK="/init-hook"
 
@@ -82,22 +81,15 @@ RUN \
   mkdir -p /app/whisparr/bin && \
   WHISPARR_RELEASE=$(curl -sL "https://api.github.com/repos/Whisparr/Whisparr-Eros/releases") && \
   if [ -z ${WHISPARR_VERSION+x} ]; then \
-    WHISPARR_VERSION=$(echo "${WHISPARR_RELEASE}" | jq -r 'first(.[].tag_name)'); \
+    WHISPARR_VERSION=$(echo "${WHISPARR_RELEASE}" | jq -r 'first(.[] | select(.prerelease == false) | .tag_name)'); \
   fi && \
-  WHISPARR_RELEASE_TYPE=$(echo "${WHISPARR_RELEASE}" | jq -r ".[] | select(.tag_name == \"${WHISPARR_VERSION}\") | .prerelease") && \
-  if ${WHISPARR_RELEASE_TYPE}; then \
-    curl -o \
-      /tmp/whisparr.tar.gz -L \
-      "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros-develop.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz"; \
-  else \
-    curl -o \
-      /tmp/whisparr.tar.gz -L \
-      "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz"; \
-  fi && \
+  curl -o \
+    /tmp/whisparr.tar.gz -L \
+    "https://github.com/Whisparr/Whisparr-Eros/releases/download/${WHISPARR_VERSION}/Whisparr.eros.${WHISPARR_VERSION#v}.linux-musl-x64.tar.gz" && \
   tar xzf \
   /tmp/whisparr.tar.gz -C \
     /app/whisparr/bin --strip-components=1 && \
-  echo -e "UpdateMethod=docker\nBranch=${APP_BRANCH}\nPackageVersion=${WHISPARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/whisparr/package_info && \
+  echo -e "UpdateMethod=docker\nBranch=master\nPackageVersion=${WHISPARR_VERSION}\nPackageAuthor=[thespad](https://github.com/thespad)" > /app/whisparr/package_info && \
   printf "Version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \
@@ -113,5 +105,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 6969 7878 8686 8989 9696
-
-VOLUME /config
+VOLUME /configs
