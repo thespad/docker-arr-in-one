@@ -31,6 +31,15 @@ The architectures supported by this image are:
 | amd64 | ✅ | latest |
 | arm64 | ✅ | latest |
 
+## Version Tags
+
+This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
+
+| Tag | Available | Description |
+| :----: | :----: |--- |
+| latest | ✅ | Nightly releases built daily |
+| stable | ✅ | Stable releases built weekly |
+
 ## Usage
 
 Here are some example snippets to help you get started creating a container.
@@ -190,6 +199,7 @@ docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 
 ## Versions
 
+* **24.08.26:** - Add stable branch.
 * **14.07.26:** - Rebase to Alpine 3.24.
 * **14.03.26:** - Remove Readarr, it's time.
 * **27.02.26:** - Rebase to Alpine 3.23.
