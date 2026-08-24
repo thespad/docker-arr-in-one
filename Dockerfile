@@ -82,7 +82,7 @@ RUN \
   mkdir -p /app/whisparr/bin && \
   WHISPARR_RELEASE=$(curl -sL "https://api.github.com/repos/Whisparr/Whisparr-Eros/releases/latest") && \
   if [ -z ${WHISPARR_VERSION+x} ]; then \
-    WHISPARR_VERSION=$(echo "${WHISPARR_RELEASE}" | jq -r 'first(.[].tag_name)'); \
+    WHISPARR_VERSION=$(echo "${WHISPARR_RELEASE}" | jq -r '.tag_name'); \
   fi && \
   curl -o \
     /tmp/whisparr.tar.gz -L \
