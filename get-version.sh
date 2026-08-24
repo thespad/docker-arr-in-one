@@ -2,4 +2,4 @@
 
 APP_VERSION=$(date --iso-860);
 
-printf "%s" "${APP_VERSION}"
+printf "stable-%s" "${APP_VERSION}"
