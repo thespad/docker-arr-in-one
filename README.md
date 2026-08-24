@@ -10,7 +10,7 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/thespad/docker-arr-in-one/call-check-and-release.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-check-and-release.yml)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/thespad/docker-arr-in-one/call-build-image.yml?style=for-the-badge&logo=github&labelColor=555555&logocolor=ffffff&label=Build%20Image)](https://github.com/thespad/docker-arr-in-one/actions/workflows/call-build-image.yml)
 
-arr-in-one is a really dumb proof of concept that bundles the stable branch builds of all of the *arr applications into a single container, built daily. This image contains:
+arr-in-one is a really dumb proof of concept that bundles the nightly branch builds (develop for Sonarr as it lacks a nightly branch) of all of the *arr applications into a single container, built daily. This image contains:
 
 * Sonarr
 * Radarr
@@ -30,15 +30,6 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | amd64 | ✅ | latest |
 | arm64 | ✅ | latest |
-
-## Version Tags
-
-This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
-
-| Tag | Available | Description |
-| :----: | :----: |--- |
-| latest | ✅ | Nightly releases, built nightly |
-| stable | ✅ | Stable releases, built weekly |
 
 ## Usage
 
@@ -199,7 +190,6 @@ docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 
 ## Versions
 
-* **24.08.26:** - Add stable branch.
 * **14.07.26:** - Rebase to Alpine 3.24.
 * **14.03.26:** - Remove Readarr, it's time.
 * **27.02.26:** - Rebase to Alpine 3.23.
