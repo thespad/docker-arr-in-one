@@ -3,7 +3,7 @@ name: Check for update and release
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '15 0 * * *'
+    - cron:  '15 3 * * 0'
 
 jobs:
   call-workflow:
@@ -12,9 +12,9 @@ jobs:
       repo_owner: ${{ github.repository_owner }}
       app_name: "arr-in-one"
       release_type: "script"
-      prerelease: true
+      prerelease: false
       dockerhub_user: "thespad"
-      branch_name: main
+      branch_name: stable
     secrets:
       repo_scoped_token: ${{ secrets.repo_scoped_token }}
       dockerhub_password: ${{ secrets.docker_password }}
