@@ -16,15 +16,17 @@ LABEL org.opencontainers.image.authors="thespad"
 # environment settings
 ARG APP_BRANCH="nightly"
 ARG SONARR_BRANCH="develop"
-ENV SONARR_CHANNEL="v4-nightly"
+ENV SONARR_CHANNEL="v5-nightly"
 ENV XDG_CONFIG_HOME="/config/xdg"
 ENV S6_STAGE2_HOOK="/init-hook"
+ENV PGGSSENCMODE="disable"
 
 RUN \
   echo "**** install packages ****" && \
   apk add -U --upgrade --no-cache \
     chromaprint \
     icu-libs \
+    krb5-libs \
     sqlite-libs && \
   echo "**** install sonarr ****" && \
   mkdir -p /app/sonarr/bin && \
